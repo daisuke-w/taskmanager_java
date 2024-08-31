@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import d.com.taskmanager.entity.Task;
+import d.com.taskmanager.exception.TaskNotFoundException;
 import d.com.taskmanager.repository.TaskRepository;
 
 public class TaskServiceImpl implements TaskService {
@@ -24,7 +25,7 @@ public class TaskServiceImpl implements TaskService {
 		if (task.isPresent()) {
 			return task.get();
 		} else {
-			throw new RuntimeException("Task not found with id" + id);
+			throw new TaskNotFoundException(id);
 		}
 	}
 
