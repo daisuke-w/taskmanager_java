@@ -32,6 +32,7 @@ replay_pid*
 /backend/.mvn/
 /backend/.settings/
 /backend/.classpath
+/backend/src/main/resources/static
 
 # フロントエンド
 /frontend/node_modules/
