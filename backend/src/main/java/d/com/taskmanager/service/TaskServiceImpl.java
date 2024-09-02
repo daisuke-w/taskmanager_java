@@ -4,11 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import d.com.taskmanager.entity.Task;
 import d.com.taskmanager.exception.TaskNotFoundException;
 import d.com.taskmanager.repository.TaskRepository;
 
+@Service
 public class TaskServiceImpl implements TaskService {
 
 	@Autowired
