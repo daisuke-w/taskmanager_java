@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { getTaskById, createTask, updateTask } from "../services/api";
 import { useParams, useNavigate } from "react-router-dom";
 
+import './TaskForm.css';
+
 const TaskForm = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -45,24 +47,24 @@ const TaskForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-        <h2>{id ? 'Edit Task' : 'Create Task'}</h2>
-        <label>
-            Title:
-            <input type="text" name="title" value={task.title} onChange={handleChange} required />
-        </label>
-        <br />
-        <label>
-            Description:
-            <textarea name="description" value={task.description} onChange={handleChange} />
-        </label>
-        <br />
-        <label>
-            Completed:
-            <input type="checkbox" name="completed" checked={task.completed} onChange={handleChange} />
-        </label>
-        <br />
-        <button type="submit">Save</button>
+    <form onSubmit={handleSubmit} className="task-form-container">
+      <h2>{id ? 'Edit Task' : 'Create Task'}</h2>
+      <label>
+        Title:
+        <input type="text" name="title" value={task.title} onChange={handleChange} required />
+      </label>
+      <br />
+      <label>
+        Description:
+        <textarea name="description" value={task.description} onChange={handleChange} />
+      </label>
+      <br />
+      <label>
+        Completed:
+        <input type="checkbox" name="completed" checked={task.completed} onChange={handleChange} />
+      </label>
+      <br />
+      <button type="submit">Save</button>
     </form>
   );
 };
