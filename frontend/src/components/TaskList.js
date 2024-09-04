@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { getTasks, deleteTask } from "../services/api";
 
+import './TaskList.css';
+
 const TaskList = () => {
   const [tasks, setTasks] = useState([]);
 
@@ -27,11 +29,11 @@ const TaskList = () => {
   };
 
   return (
-    <div>
-      <h2>Task List</h2>
+    <div className="task-list-container">
+      <h2 className="task-list-title">Task List</h2>
       <ul>
         {tasks.map(task => (
-          <li key={task.id}>
+          <li key={task.id} className="task-item">
             {task.title}
             <button onClick={() => handleDelete(task.id)}>Delete</button>
           </li>
