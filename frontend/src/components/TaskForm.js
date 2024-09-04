@@ -24,9 +24,10 @@ const TaskForm = () => {
   }, [id]);
 
   const handleChange = (e) => {
-    const { name, value, checked } = e.target;
-    setTask({ ...task, [name]: value, completed: checked });
-  };
+    const { name, value, checked, type } = e.target;
+    const newValue = type === 'checkbox' ? checked : value || '';
+    setTask({ ...task, [name]: newValue });
+};
 
   const handleSubmit = async (e) => {
     e.preventDefault();
