@@ -28,17 +28,42 @@ const TaskList = () => {
     }
   };
 
+  const handleCompleteToggle = (id) => {
+    const updatedTasks = tasks.map(task => 
+      task.id === id ? { ...task, completed: !task.completed } : task
+    );
+    setTasks(updatedTasks);
+  };
+
   return (
     <div className="task-list-container">
       <h2 className="task-list-title">Task List</h2>
-      <ul>
-        {tasks.map(task => (
-          <li key={task.id} className="task-item">
-            {task.title}
-            <button onClick={() => handleDelete(task.id)}>Delete</button>
-          </li>
-        ))}
-      </ul>
+      <table className="task-table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Completed</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tasks.map(task => (
+            <tr key={task.id} className="task-item">
+              <td>{task.title}</td>
+              <td>
+                <input 
+                  type="checkbox" 
+                  checked={task.completed} 
+                  onChange={() => handleCompleteToggle(task.id)} 
+                />
+              </td>
+              <td>
+                <button onClick={() => handleDelete(task.id)}>Delete</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

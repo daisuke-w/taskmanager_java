@@ -10,17 +10,28 @@
   font-size: 1.5em;
   color: #5d5d5a;
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
-.task-item {
-  background-color: #e8e3cc;
-  margin-bottom: 10px;
+.task-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.task-table th, .task-table td {
   padding: 10px;
-  border-radius: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  text-align: center;
+  border: 1px solid #e8e3cc;
+  font-family: 'Caveat', cursive;
+}
+
+.task-table th {
+  background-color: #e8e3cc;
+  color: #5d5d5a;
+}
+
+.task-item td {
+  background-color: #f4f3e1;
 }
 
 .task-item button {
@@ -30,9 +41,12 @@
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
-  font-family: 'Caveat', cursive;
 }
 
 .task-item button:hover {
   background-color: #726f62;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.2);
 }
