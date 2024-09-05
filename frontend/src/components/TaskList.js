@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getTasks, deleteTask } from "../services/api";
+import Button from './Button';
 
 import './TaskList.css';
 
@@ -38,6 +39,7 @@ const TaskList = () => {
   return (
     <div className="task-list-container">
       <h2 className="task-list-title">Task List</h2>
+      <Button as="a" href="/task/new" className="new-task-button">New Task</Button>
       <table className="task-table">
         <thead>
           <tr>
@@ -58,7 +60,7 @@ const TaskList = () => {
                 />
               </td>
               <td>
-                <button onClick={() => handleDelete(task.id)}>Delete</button>
+                <Button onClick={() => handleDelete(task.id)}>Delete</Button>
               </td>
             </tr>
           ))}

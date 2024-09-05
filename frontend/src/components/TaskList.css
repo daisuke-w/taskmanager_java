@@ -41,6 +41,7 @@
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
+  font-family: 'Caveat', cursive;
 }
 
 .task-item button:hover {
@@ -49,4 +50,20 @@
 
 input[type="checkbox"] {
   transform: scale(1.2);
+}
+
+.new-task-button {
+  text-decoration: none;
+  background-color: #d26a20;
+  padding: 5px;
+  border-radius: 5px;
+  display: block;
+  width: 60px;
+  text-align: center;
+  color: white;
+  margin: 0 0 10px auto;
+}
+
+.new-task-button:hover {
+    background-color: #bb5d1a;
 }
