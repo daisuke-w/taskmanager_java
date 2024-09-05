@@ -45,6 +45,7 @@ const TaskList = () => {
           <tr>
             <th>Title</th>
             <th>Completed</th>
+            <th>Edit</th>
             <th>Delete</th>
           </tr>
         </thead>
@@ -58,6 +59,9 @@ const TaskList = () => {
                   checked={task.completed} 
                   onChange={() => handleCompleteToggle(task.id)} 
                 />
+              </td>
+              <td>
+                <Button as="a" href={`/task/edit/${task.id}`} className="edit-task-button">Edit</Button>
               </td>
               <td>
                 <Button onClick={() => handleDelete(task.id)}>Delete</Button>

@@ -67,3 +67,19 @@ input[type="checkbox"] {
 .new-task-button:hover {
     background-color: #bb5d1a;
 }
+
+.edit-task-button {
+  text-decoration: none;
+  background-color: #20d2a0;
+  padding: 5px;
+  border-radius: 5px;
+  display: block;
+  width: 35px;
+  text-align: center;
+  color: white;
+  margin: 0 auto;
+}
+
+.edit-task-button:hover {
+    background-color: #18a17a;
+}
