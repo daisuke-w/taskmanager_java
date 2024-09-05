@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getTaskById, createTask, updateTask } from "../services/api";
 import { useParams, useNavigate } from "react-router-dom";
+import Button from './Button';
 
 import './TaskForm.css';
 
@@ -64,7 +65,8 @@ const TaskForm = () => {
         <input type="checkbox" name="completed" checked={task.completed} onChange={handleChange} />
       </label>
       <br />
-      <button type="submit">Save</button>
+      <Button as="a" href="/" className="task-list-button">Task List</Button>
+      <Button type="submit">Save</Button>
     </form>
   );
 };

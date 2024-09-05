@@ -41,3 +41,23 @@
 .task-form-container button:hover {
   background-color: #726f62;
 }
+
+.task-list-button {
+  text-decoration: none;
+  background-color: #2058d2;
+  padding: 5px;
+  border-radius: 5px;
+  display: block;
+  width: 60px;
+  height: 16.5px;
+  line-height: 16.5px;
+  text-align: center;
+  color: white;
+  font-family: 'Caveat';
+  float: left;
+  margin-right: 5px;
+}
+
+.task-list-button:hover {
+    background-color: #173e91;
+}
