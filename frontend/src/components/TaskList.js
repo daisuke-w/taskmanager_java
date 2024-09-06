@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getTasks, deleteTask } from "../services/api";
+import { getTasks, deleteTask, updateTask } from "../services/api";
 import Button from './Button';
 
 import './TaskList.css';
@@ -29,11 +29,23 @@ const TaskList = () => {
     }
   };
 
-  const handleCompleteToggle = (id) => {
-    const updatedTasks = tasks.map(task => 
-      task.id === id ? { ...task, completed: !task.completed } : task
-    );
-    setTasks(updatedTasks);
+  const handleCompleteToggle = async (id) => {
+    try {
+      let updatedTask;
+      const updatedTasks = tasks.map(task => {
+        if (task.id === id) {
+          updatedTask = { ...task, completed: !task.completed };
+          return updatedTask;
+        } else {
+          return task;
+        }
+      });
+
+      await updateTask(id, updatedTask);
+      setTasks(updatedTasks);
+    } catch (error) {
+      console.error('Error updating task:', error);
+    }
   };
 
   return (
@@ -44,6 +56,7 @@ const TaskList = () => {
         <thead>
           <tr>
             <th>Title</th>
+            <th>Deadline</th>
             <th>Completed</th>
             <th>Edit</th>
             <th>Delete</th>
@@ -51,14 +64,11 @@ const TaskList = () => {
         </thead>
         <tbody>
           {tasks.map(task => (
-            <tr key={task.id} className="task-item">
+            <tr key={task.id} className={`task-item ${task.completed ? 'task-completed' : ''}`}>
               <td>{task.title}</td>
+              <td>{task.deadline}</td>
               <td>
-                <input 
-                  type="checkbox" 
-                  checked={task.completed} 
-                  onChange={() => handleCompleteToggle(task.id)} 
-                />
+                <input type="checkbox" checked={task.completed} onChange={() => handleCompleteToggle(task.id)} />
               </td>
               <td>
                 <Button as="a" href={`/task/edit/${task.id}`} className="edit-task-button">Edit</Button>

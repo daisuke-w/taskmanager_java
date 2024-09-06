@@ -17,6 +17,7 @@
 }
 
 .task-form-container input[type="text"],
+.task-form-container input[type="date"],
 .task-form-container textarea {
   width: 90%;
   padding: 10px;

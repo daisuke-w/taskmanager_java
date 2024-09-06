@@ -9,7 +9,7 @@ const TaskForm = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const [task, setTask] = useState({ title: '', description: '', completed: false });
+  const [task, setTask] = useState({ title: '', description: '', deadline: '', completed: false });
 
   useEffect(() => {
     if (id) {
@@ -27,9 +27,8 @@ const TaskForm = () => {
   }, [id]);
 
   const handleChange = (e) => {
-    const { name, value, checked, type } = e.target;
-    const newValue = type === 'checkbox' ? checked : value || '';
-    setTask({ ...task, [name]: newValue });
+    const { name, value } = e.target;
+    setTask({ ...task, [name]: value });
 };
 
   const handleSubmit = async (e) => {
@@ -56,13 +55,13 @@ const TaskForm = () => {
       </label>
       <br />
       <label>
-        Description:
-        <textarea name="description" value={task.description} onChange={handleChange} />
+        Deadline:
+        <input type="date" name="deadline" max="9999-12-31" value={task.deadline} onChange={handleChange}/>
       </label>
       <br />
       <label>
-        Completed:
-        <input type="checkbox" name="completed" checked={task.completed} onChange={handleChange} />
+        Description:
+        <textarea name="description" value={task.description} onChange={handleChange} />
       </label>
       <br />
       <Button as="a" href="/" className="task-list-button">Task List</Button>

@@ -30,7 +30,7 @@
   color: #5d5d5a;
 }
 
-.task-item td {
+.task-item tr {
   background-color: #f4f3e1;
 }
 
@@ -82,4 +82,8 @@ input[type="checkbox"] {
 
 .edit-task-button:hover {
     background-color: #18a17a;
+}
+
+.task-completed {
+  background-color: #584747;
 }
