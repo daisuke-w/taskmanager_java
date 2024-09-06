@@ -1,5 +1,7 @@
 package d.com.taskmanager.entity;
 
+import java.sql.Date;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,6 +19,7 @@ public class Task {
 	private String title;
 	private String description;
 	private boolean completed;
+	private Date deadline;
 
 	public Long getId() {
 		return id;
@@ -48,5 +51,13 @@ public class Task {
 	
 	public void setCompleted(boolean completed) {
 		this.completed = completed;
+	}
+	
+	public Date getDeadline() {
+		return deadline;
+	}
+
+	public void setDeadline(Date deadline) {
+		this.deadline = deadline;
 	}
 }
