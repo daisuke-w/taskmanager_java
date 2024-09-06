@@ -1,0 +1,63 @@
+.task-form-container {
+  background-color: #faf4e1;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.task-form-container h2,
+.task-form-container label {
+  font-family: 'Caveat', cursive;
+}
+
+.task-form-container label {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-form-container input[type="text"],
+.task-form-container textarea {
+  width: 90%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #e8e3cc;
+}
+
+.task-form-container input[type="checkbox"] {
+  width: 15px;
+}
+
+.task-form-container button {
+  background-color: #8c8b7a;
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Caveat', cursive;
+}
+
+.task-form-container button:hover {
+  background-color: #726f62;
+}
+
+.task-list-button {
+  text-decoration: none;
+  background-color: #2058d2;
+  padding: 5px;
+  border-radius: 5px;
+  display: block;
+  width: 60px;
+  height: 16.5px;
+  line-height: 16.5px;
+  text-align: center;
+  color: white;
+  font-family: 'Caveat';
+  float: left;
+  margin-right: 5px;
+}
+
+.task-list-button:hover {
+    background-color: #173e91;
+}
