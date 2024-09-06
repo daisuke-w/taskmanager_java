@@ -44,6 +44,7 @@ const TaskList = () => {
         <thead>
           <tr>
             <th>Title</th>
+            <th>Deadline</th>
             <th>Completed</th>
             <th>Edit</th>
             <th>Delete</th>
@@ -53,12 +54,9 @@ const TaskList = () => {
           {tasks.map(task => (
             <tr key={task.id} className="task-item">
               <td>{task.title}</td>
+              <td>{task.deadline}</td>
               <td>
-                <input 
-                  type="checkbox" 
-                  checked={task.completed} 
-                  onChange={() => handleCompleteToggle(task.id)} 
-                />
+                <input type="checkbox" checked={task.completed} onChange={() => handleCompleteToggle(task.id)} />
               </td>
               <td>
                 <Button as="a" href={`/task/edit/${task.id}`} className="edit-task-button">Edit</Button>
