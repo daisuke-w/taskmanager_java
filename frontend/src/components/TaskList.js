@@ -64,7 +64,7 @@ const TaskList = () => {
         </thead>
         <tbody>
           {tasks.map(task => (
-            <tr key={task.id} className="task-item">
+            <tr key={task.id} className={`task-item ${task.completed ? 'task-completed' : ''}`}>
               <td>{task.title}</td>
               <td>{task.deadline}</td>
               <td>
