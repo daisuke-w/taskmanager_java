@@ -55,13 +55,13 @@ const TaskForm = () => {
       </label>
       <br />
       <label>
-        Description:
-        <textarea name="description" value={task.description} onChange={handleChange} />
+        Deadline:
+        <input type="date" name="deadline" max="9999-12-31" value={task.deadline} onChange={handleChange}/>
       </label>
       <br />
       <label>
-        Deadline:
-        <input type="date" name="deadline" max="9999-12-31" value={task.deadline} onChange={handleChange}/>
+        Description:
+        <textarea name="description" value={task.description} onChange={handleChange} />
       </label>
       <br />
       <Button as="a" href="/" className="task-list-button">Task List</Button>
