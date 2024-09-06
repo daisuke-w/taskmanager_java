@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getTasks, deleteTask } from "../services/api";
+import { getTasks, deleteTask, updateTask } from "../services/api";
 import Button from './Button';
 
 import './TaskList.css';
@@ -29,11 +29,23 @@ const TaskList = () => {
     }
   };
 
-  const handleCompleteToggle = (id) => {
-    const updatedTasks = tasks.map(task => 
-      task.id === id ? { ...task, completed: !task.completed } : task
-    );
-    setTasks(updatedTasks);
+  const handleCompleteToggle = async (id) => {
+    try {
+      let updatedTask;
+      const updatedTasks = tasks.map(task => {
+        if (task.id === id) {
+          updatedTask = { ...task, completed: !task.completed };
+          return updatedTask;
+        } else {
+          return task;
+        }
+      });
+
+      await updateTask(id, updatedTask);
+      setTasks(updatedTasks);
+    } catch (error) {
+      console.error('Error updating task:', error);
+    }
   };
 
   return (
