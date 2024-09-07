@@ -11,7 +11,7 @@ const Modal = ({ data, onClose }) => {
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <h3>{data.title}</h3>
         <p>{data.description}</p>
-        <p><Button onClick={onClose}>Close</Button></p>
+        <p><Button onClick={onClose} className="modal-button">Close</Button></p>
       </div>
     </div>
   );
