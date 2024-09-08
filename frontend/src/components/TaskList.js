@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { getTasks, deleteTask, updateTask } from "../services/api";
 import Button from './Button';
+import Modal from './Modal';
 
 import './TaskList.css';
 
 const TaskList = () => {
   const [tasks, setTasks] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedTask, setSelectedTask] = useState(null);
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -48,6 +51,16 @@ const TaskList = () => {
     }
   };
 
+  const handleTitleClick = (task) => {
+    setSelectedTask(task);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedTask(null);
+  };
+
   return (
     <div className="task-list-container">
       <h2 className="task-list-title">Task List</h2>
@@ -65,7 +78,9 @@ const TaskList = () => {
         <tbody>
           {tasks.map(task => (
             <tr key={task.id} className={`task-item ${task.completed ? 'task-completed' : ''}`}>
-              <td>{task.title}</td>
+              <td onClick={() => handleTitleClick(task)} style={{ cursor: 'pointer' }}>
+                {task.title}
+              </td>
               <td>{task.deadline}</td>
               <td>
                 <input type="checkbox" checked={task.completed} onChange={() => handleCompleteToggle(task.id)} />
@@ -80,6 +95,11 @@ const TaskList = () => {
           ))}
         </tbody>
       </table>
+
+      {isModalOpen && (
+        <Modal data={selectedTask} onClose={handleCloseModal} />
+      )}
+
     </div>
   );
 };

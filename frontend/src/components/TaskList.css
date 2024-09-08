@@ -65,7 +65,7 @@ input[type="checkbox"] {
 }
 
 .new-task-button:hover {
-    background-color: #bb5d1a;
+  background-color: #bb5d1a;
 }
 
 .edit-task-button {
@@ -81,7 +81,7 @@ input[type="checkbox"] {
 }
 
 .edit-task-button:hover {
-    background-color: #18a17a;
+  background-color: #18a17a;
 }
 
 .task-completed {
